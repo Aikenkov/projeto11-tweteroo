@@ -1,6 +1,8 @@
 import express from "express"
-
+import cors from "cors";
 const app = express();
+
+app.use(cors());
 app.use(express.json());
 
 const users = [];
@@ -15,7 +17,6 @@ app.post("/sign-up", (req, res) => {
         username,
         avatar
     })
-    res.send(users)
     res.send("Ok")
 })
 
@@ -28,7 +29,6 @@ app.post("/tweets", (req, res) => {
         username,
         tweet
     });
-    res.send(tweets)
     res.send("Ok")
 })
 
